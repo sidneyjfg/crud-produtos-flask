@@ -1,0 +1,35 @@
+{% extends '_shared/base.html' %}
+{% block title %}{{ title }} - CRUD{% endblock %}
+{% block content %}
+<h3 class="text-2xl font-semibold mb-4">{{ title }}</h3>
+
+<form method="POST"
+  class="bg-white/90 dark:bg-slate-900/70 backdrop-blur border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-lg">
+  {{ form.hidden_tag() }}
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      {{ form.name.label(class="block text-sm font-medium mb-1") }}
+      {{ form.name(class="ui-input", maxlength=120, autofocus=true, **{'data-autofocus': True}) }}
+    </div>
+    <div>
+      {{ form.quantity.label(class="block text-sm font-medium mb-1") }}
+      {{ form.quantity(class="ui-input", min=0) }}
+    </div>
+    <div>
+      {{ form.price.label(class="block text-sm font-medium mb-1") }}
+      {{ form.price(class="ui-input", min=0, step="0.01") }}
+    </div>
+    <div class="md:col-span-2">
+      {{ form.description.label(class="block text-sm font-medium mb-1") }}
+      {{ form.description(class="ui-input", rows=3) }}
+    </div>
+  </div>
+
+  <div class="mt-5 flex flex-wrap gap-2">
+    <a href="{{ url_for('products.lista_produtos') }}"
+      class="inline-flex items-center rounded-xl border px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition">Voltar</a>
+    {{ form.submit(class="inline-flex items-center rounded-xl bg-brand-600 text-white px-4 py-2 hover:bg-brand-700
+    active:scale-[.99] transition") }}
+  </div>
+</form>
+{% endblock %}

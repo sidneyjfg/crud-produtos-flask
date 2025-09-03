@@ -1,0 +1,18 @@
+{% extends '_shared/base.html' %}
+{% block title %}Excluir Produto - CRUD{% endblock %}
+{% block content %}
+<h3 class="text-2xl font-semibold mb-4">Confirma a exclusão de "<span class="text-slate-900 dark:text-white">{{ product.name }}</span>"?</h3>
+
+<form method="POST" class="bg-white/90 dark:bg-slate-900/70 backdrop-blur border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-lg">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+  <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
+    Esta ação é permanente e não pode ser desfeita.
+  </p>
+  <div class="flex flex-wrap gap-2">
+    <a href="{{ url_for('products.lista_produtos') }}"
+       class="inline-flex items-center rounded-xl border px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition">Cancelar</a>
+    <button class="inline-flex items-center rounded-xl bg-rose-600 text-white px-4 py-2 hover:bg-rose-500 active:scale-[.99] transition"
+            type="submit">Excluir</button>
+  </div>
+</form>
+{% endblock %}

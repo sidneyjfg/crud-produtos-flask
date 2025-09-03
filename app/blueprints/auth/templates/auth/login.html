@@ -1,0 +1,30 @@
+{% extends '_shared/base.html' %}
+{% block title %}Login - CRUD{% endblock %}
+{% block content %}
+<section class="min-h-[70vh] grid place-items-center">
+  <div class="w-full max-w-md">
+    <div class="bg-white/90 dark:bg-slate-900/70 backdrop-blur border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-lg">
+      <header class="mb-6">
+        <h1 class="text-2xl font-semibold tracking-tight">Acessar conta</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Entre para gerenciar os produtos.</p>
+      </header>
+
+      <form method="POST" class="space-y-4">
+        {{ form.hidden_tag() }}
+
+        <div>
+          {{ form.username.label(class="block text-sm font-medium mb-1") }}
+          {{ form.username(class="ui-input", maxlength=50, autofocus=true, **{'data-autofocus': True}) }}
+        </div>
+
+        <div>
+          {{ form.password.label(class="block text-sm font-medium mb-1") }}
+          {{ form.password(class="ui-input", minlength=4, maxlength=128) }}
+        </div>
+
+        {{ form.submit(class="w-full inline-flex justify-center items-center rounded-xl bg-brand-600 text-white py-2.5 hover:bg-brand-700 active:scale-[.99] transition") }}
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

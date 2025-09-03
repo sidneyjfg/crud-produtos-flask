@@ -1,0 +1,79 @@
+/* Inputs globais — classe utilitária */
+.ui-input {
+  width: 100%;
+  border: 1.5px solid hsl(220 13% 78%);
+  border-radius: 0.75rem;
+  /* rounded-xl */
+  background: #ffffff;
+  color: #0f172a;
+  padding: 0.65rem 0.9rem;
+  /* conforto */
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.ui-input::placeholder {
+  color: #94a3b8;
+}
+
+.ui-input:hover {
+  border-color: hsl(220 13% 65%);
+}
+
+.ui-input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  /* brand-600 */
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, .15);
+}
+
+/* Dark */
+.dark .ui-input {
+  border-color: hsl(220 10% 30%);
+  background: #0b1220;
+  color: #e5e7eb;
+}
+
+.dark .ui-input:hover {
+  border-color: hsl(220 10% 40%);
+}
+
+.dark .ui-input:focus {
+  border-color: #a5b4fc;
+  box-shadow: 0 0 0 4px rgba(165, 180, 252, .2);
+}
+
+/* Toasts */
+.toast-wrap {
+  position: fixed;
+  inset: 0 0 auto auto;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: 1rem;
+  pointer-events: none;
+  z-index: 60;
+}
+
+.toast {
+  pointer-events: auto;
+  border-radius: .75rem;
+  padding: .75rem .9rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  box-shadow: 0 10px 25px rgba(2, 8, 23, .18);
+  border: 1px solid;
+  animation: slideIn .22s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) translateX(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+}
