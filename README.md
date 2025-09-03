@@ -5,6 +5,24 @@ Permite **login**, **cadastro/listagem/edição/exclusão** de produtos.
 
 ---
 
+## 📚 Sumário
+
+- [🚀 Tecnologias](#-tecnologias)
+- [📂 Estrutura do Projeto](#-estrutura-do-projeto)
+- [⚙️ Pré-requisitos](#️-pré-requisitos)
+- [🔧 Instalação](#-instalação)
+- [🗄️ Inicializando o Banco de Dados](#️-inicializando-o-banco-de-dados)
+  - [Criar tabelas](#criar-tabelas)
+  - [Criar usuário admin](#criar-usuário-admin)
+- [▶️ Rodando o Projeto](#️-rodando-o-projeto)
+- [👤 Login](#-login)
+- [✨ Funcionalidades](#-funcionalidades)
+- [🔒 Segurança](#-segurança)
+- [📦 Organização do Projeto](#-organização-do-projeto)
+- [🐳 Executar com Docker](#-executar-com-docker) <!-- remova se não for usar Docker -->
+- [📝 Licença](#-licença) <!-- remova se não tiver -->
+
+---
 ## 🚀 Tecnologias
 - Python 3.10+
 - Flask
