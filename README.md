@@ -39,46 +39,48 @@ Permite **login**, **cadastro/listagem/edição/exclusão** de produtos.
 ```
 crud-produtos/
 │
-├── app/
-│   ├── __init__.py             # inicialização do Flask e extensões
-│   ├── db.py                   # engine e sessão do SQLAlchemy
-│   ├── helpers.py              # CSRF, login_manager
-│   ├── models/                 # modelos do banco
-│   │   ├── __init__.py
+├── app/                         # pacote Python
+│   ├── __init__.py              # cria a app e registra blueprints
+│   ├── db.py                    # engine + Session (SQLAlchemy Core/ORM)
+│   ├── helpers.py               # csrf, login_manager, etc.
+│   ├── utils.py                 # helpers gerais (se usar)
+│   ├── models/
+│   │   ├── __init__.py          # Base, imports de modelos
 │   │   ├── product.py
 │   │   └── user.py
-│   ├── blueprints/             # módulos separados por domínio
-│   │   ├── auth/               # login/logout
-│   │   │   ├── __init__.py
-│   │   │   ├── forms.py
-│   │   │   └── routes.py
-|   |   ├───templates/
-|   |   |       ├── auth/
-|   |   |          ├── lista_produtos.html
-│   │   └── products/           # CRUD de produtos
-│   │     │    ├── __init__.py
-│   │     │    ├── forms.py
-│   │     │    └── routes.py
-|   |     └──templates/
-|   |         └── products/
-│   │             ├── lista_produtos.html
-│   │             ├── formulario_produto.html
-│   │             └── confirma_delete.html
-│   ├── templates/              # templates HTML (Jinja2 + Tailwind)
-│   │   ├── _shared/
-│   │        └── base.html
-│   │   
-│   └── static/                 # arquivos estáticos
-│       ├── css/
-│       │   └── style.css
-│       └── js/
-│           └── ui.js
+│   └── blueprints/
+│       ├── auth/
+│       │   ├── __init__.py      # bp = Blueprint("auth", __name__)
+│       │   ├── forms.py
+│       │   └── routes.py        # / (login), /logout
+│       └── products/
+│           ├── __init__.py      # bp = Blueprint("products", __name__, url_prefix="/products")
+│           ├── forms.py
+│           └── routes.py        # lista/cria/edita/exclui
 │
-├── run.py                      # roda o servidor Flask
-├── cli.py                      # inicializa tabelas e cria usuário para login
-├── config.py                   # configuração principal
-├── requirements.txt            # dependências Python
-├── .env                        # variáveis de ambiente
+├── templates/                   # Jinja2 globais
+│   ├── _shared/
+│   │   └── base.html
+│   ├── auth/
+│   │   └── login.html
+│   └── products/
+│       ├── lista_produtos.html
+│       ├── formulario_produto.html
+│       └── confirma_delete.html
+│
+├── static/                      # arquivos estáticos globais
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── ui.js
+│
+├── cli.py                       # comandos: init-db / create-user
+├── run.py                       # roda o servidor (flask app)
+├── config.py                    # classe Config (SECRET_KEY, DATABASE_URL, etc.)
+├── requirements.txt
+├── .env.example
+├── .env
+├── .gitignore
 └── README.md
 ```
 
